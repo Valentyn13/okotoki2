@@ -42,6 +42,7 @@ function App() {
 
   useEffect(() => {
     setSelectedCoins(parseStorage(StorageKey.SELECTED_COINS));
+    setSearchQuery("");
   }, [activeTab]);
 
   useEffect(() => {

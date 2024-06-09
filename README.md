@@ -11,3 +11,5 @@
 * ## Tabs
 
 * ## User select none
+
+* ## Clear search string while changing tabs
