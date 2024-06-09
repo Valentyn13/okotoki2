@@ -129,8 +129,7 @@ body {
     rgb(255 86 254 / 2.79%) 105%
   );
   border: 1px solid var(--gray-border-color);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-radius: 10px;
   user-select: none;
 }
 
@@ -146,10 +145,6 @@ body {
   scrollbar-width: none;
 }
 
-.virtual-translate-container{
-  padding-left: 8px;
-}
-
 .virtual-list::-webkit-scrollbar {
   display: none;
 }
@@ -157,5 +152,11 @@ body {
 .list-item {
   display: flex;
   gap: 8px;
-  margin: 0 0 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background-color: var(--button-active-bg);
+  border-radius: 15px;
 }

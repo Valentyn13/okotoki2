@@ -57,7 +57,6 @@ export const VirtualList: FC<VirtualListProps> = ({ items }) => {
         }}
       >
         <div
-          className="virtual-translate-container"
           style={{
             transform: `translateY(${startIndex * itemHeight}px)`,
           }}
