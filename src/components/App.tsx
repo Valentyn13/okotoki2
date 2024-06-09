@@ -3,13 +3,11 @@ import { ChangeEvent, useEffect, useMemo, useState } from "react";
 
 import { getCoins } from "../api/get-coins";
 import { Dropdown } from "./dropdown/dropdown";
-import { Tabs } from "./tabs/tabs";
-import { VirtualList } from "./virtual-list/virtual-list";
-import { Input } from "./input/input";
 import { parseStorage } from "../lib/parse-storage";
 import { IconName, StorageKey } from "../constants/constants";
 import { Button } from "./button/button";
 import { Icon } from "./icon/icon";
+import { DropdownContent } from "./dropdown-content/dropdown-content";
 
 import "../styles/App.css";
 
@@ -65,32 +63,15 @@ function App() {
             </Button>
           }
           droppableContent={
-            <>
-              <Input value={searchQuery} onChange={handleSearchQueryChange} />
-              <Tabs
-                activeTabIndex={activeTab}
-                setActiveTabIndex={setActiveTab}
-                tabs={[
-                  {
-                    title: "favorites",
-                    render: () => (
-                      <VirtualList
-                        items={searchQuery ? searchResults : selectedCoins}
-                      />
-                    ),
-                  },
-                  {
-                    title: "all coins",
-                    render: () => (
-                      <VirtualList
-                        items={searchQuery ? searchResults : coins}
-                      />
-                    ),
-                  },
-                ]}
-              />
-            </>
-          }
+          <DropdownContent
+            searchQuery={searchQuery}
+            handleSearchQueryChange={handleSearchQueryChange}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            searchResults={searchResults}
+            selectedCoins={selectedCoins}
+            coins={coins}
+          />}
         />
       )}
     </div>
